@@ -8,7 +8,6 @@ public class BubbleSorterArray implements Sorter {
     private int[] arr;
     private int nElem = 0;
     private final int size;
-    private int[] copyArr;
 
     public BubbleSorterArray(int size) {
         this.arr = new int[size];
@@ -33,10 +32,8 @@ public class BubbleSorterArray implements Sorter {
     public void remove(int key){
         for (int i = 0; i < size; i++){
             if (arr[i] == key){
-                copyArr = new int[size];
-                System.arraycopy(arr, 0, copyArr, 0, i);
-                System.arraycopy(arr, i + 1, copyArr, i, size - i - 1);
-                arr = copyArr;
+                System.arraycopy(arr, i + 1, arr, i, size - i - 1);
+                arr[size - 1] = 0;
                 nElem--;
             }
         }
