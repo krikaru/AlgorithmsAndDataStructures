@@ -17,13 +17,16 @@ public class BubbleSorterArray implements Sorter {
 
     //Insert to end
     public void insert(int key){
-        if (nElem <= size){
-            arr[nElem] = key;
-            nElem++;
-        }else {
-            throw new IndexOutOfBoundsException("Array is full!");
+        try {
+            if (nElem < size){
+                arr[nElem] = key;
+                nElem++;
+            }else {
+                throw new IndexOutOfBoundsException("Array is full!");
+            }
+        }catch (IndexOutOfBoundsException e){
+            System.out.println(e.toString() + " " + key + " isn't insert in array!");
         }
-
     }
 
     //Remove all elements by key

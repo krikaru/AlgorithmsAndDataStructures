@@ -25,6 +25,7 @@ public class Main {
         arrForRemove.insert(80);
         arrForRemove.insert(-25);
         arrForRemove.insert(43);
+        arrForRemove.insert(43);
 
         arrForRemove.display();
         arrForRemove.remove(-25);
