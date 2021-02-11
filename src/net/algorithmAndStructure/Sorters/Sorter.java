@@ -5,4 +5,5 @@ public interface Sorter {
     void remove(int key);
     void sort();
     int[] getArr();
-}
+    void display();
+    }
