@@ -53,6 +53,46 @@ public class CatsLinkedList {
         }
     }
 
+    public boolean remove(){
+        return removeLast();
+    }
+
+    public boolean removeFirst(){
+        if (first != null && nElem > 1){
+            first = first.next;
+            first.prev = null;
+            nElem--;
+            return true;
+        }else if (nElem == 1){
+            last = null;
+            first = null;
+            nElem--;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removeLast(){
+        if (last != null && nElem > 1){
+            last = last.prev;
+            last.next = null;
+            nElem--;
+            return true;
+        }else if (nElem == 1){
+            last = null;
+            first = null;
+            nElem--;
+            return true;
+        }
+        return false;
+    }
+
+    public void addAll(CatsLinkedList otherLL){
+        last.next = otherLL.first;
+        otherLL.first.prev = last;
+        nElem += otherLL.nElem;
+    }
+
     public void displayAll(){
         if (nElem == 0){
             System.out.println("There're not cats!");
