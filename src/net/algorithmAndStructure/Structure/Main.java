@@ -1,5 +1,7 @@
 package net.algorithmAndStructure.Structure;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         CatsLinkedList catsLL = new CatsLinkedList();
@@ -34,5 +36,26 @@ public class Main {
 //        System.out.println(catsLL.removeFirst());
 //        catsLL.displayAll();
 //        System.out.println(catsLL.removeFirst());
+
+        //check contains
+//        System.out.println(catsLL.contains("Tom"));
+//        System.out.println(catsLL.contains("Some cat name"));
+//        System.out.println(catsLL.contains(null));
+
+        //check toArray
+//        Cat[] catsArr = catsLL.toArray();
+//        System.out.println(Arrays.toString(catsArr));
+
+//        //check addAfter
+//        System.out.println(catsLL.addAfter(new Cat("Bounty"), "Puh"));
+//        System.out.println(catsLL.addAfter(new Cat("Bounty"), "SomeCat"));
+//        catsLL.displayAll();
+
+        //check addBefore
+        System.out.println(catsLL.addBefore(new Cat("Bounty"), "Tom"));
+        System.out.println(catsLL.addBefore(new Cat("Bounty"), "SomeCat"));
+        catsLL.displayAll();
+
+
     }
 }
