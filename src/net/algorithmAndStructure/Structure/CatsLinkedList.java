@@ -1,5 +1,7 @@
 package net.algorithmAndStructure.Structure;
 
+import java.util.LinkedList;
+
 public class CatsLinkedList {
     private Node first;
     private Node last;
@@ -91,6 +93,56 @@ public class CatsLinkedList {
         last.next = otherLL.first;
         otherLL.first.prev = last;
         nElem += otherLL.nElem;
+    }
+
+    public boolean contains(String catsName){
+        for (Node currentNode = this.first; currentNode != null; currentNode = currentNode.next) {
+            if (currentNode.elem.getName().equals(catsName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Cat[] toArray(){
+        Cat[] catsArr = new Cat[nElem];
+        int i = 0;
+        for (Node currentNode = this.first; currentNode != null; currentNode = currentNode.next){
+            catsArr[i++] = currentNode.elem;
+        }
+        return catsArr;
+    }
+
+    public boolean addAfter(Cat someCat, String afterThat){
+        for (Node currentNode = this.first; currentNode != null; currentNode = currentNode.next){
+            if (currentNode.elem.getName().equals(afterThat)){
+                Node newNode = new Node(someCat, currentNode, currentNode.next);
+                if (nElem > 1){
+                    currentNode.next.prev = newNode;
+                }else {
+                    last = newNode;
+                }
+                currentNode.next = newNode;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean addBefore(Cat someCat, String beforeThat){
+        for (Node currentNode = this.first; currentNode != null; currentNode = currentNode.next){
+            if (currentNode.elem.getName().equals(beforeThat)){
+                Node newNode = new Node(someCat, currentNode.prev, currentNode);
+                if (nElem > 1){
+                    currentNode.prev.next = newNode;
+                }else {
+                    first = newNode;
+                }
+                currentNode.prev = newNode;
+                return true;
+            }
+        }
+        return false;
     }
 
     public void displayAll(){
